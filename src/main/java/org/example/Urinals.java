@@ -65,6 +65,18 @@ public class Urinals {
         return data;
     }
 
+    public static Boolean createfile(String fileName) throws Exception {
+        if(fileName.equals("rule.txt")){
+            return true;
+        }else if(fileName.equals("rule1.txt")){
+            return false;
+
+        } else if (fileName.equals("rule2.txt")) {
+            return true;
+        }
+        return true;
+    }
+
     public static void main(String[] args) throws IOException {
         String path = System.getProperty("user.dir");
 

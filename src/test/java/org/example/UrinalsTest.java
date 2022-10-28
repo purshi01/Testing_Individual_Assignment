@@ -52,6 +52,15 @@ class UrinalsTest {
         Assertions.assertEquals(-1, ur.countUrinals("1133"));
     }
 
+    @Test
+    void createFile() throws Exception {
+        System.out.println("====== Purushothama Shanthappa == TEST THREE EXECUTED =======  File creation");
+        Assertions.assertEquals(true, ur.createfile("rule.txt"));
+        Assertions.assertEquals(false, ur.createfile("rule1.txt"));
+        Assertions.assertEquals( true, ur.createfile("rule2.txt"));
+
+    }
+
 
     @AfterAll
     static void tearDownAfterClass() throws Exception {

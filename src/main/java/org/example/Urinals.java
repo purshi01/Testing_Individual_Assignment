@@ -3,6 +3,7 @@ package org.example;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.Scanner;
 
 public class Urinals {
@@ -20,34 +21,39 @@ public class Urinals {
 
     static int countUrinals(String string) {
 
-        int n = string.length();
-        int Count = 0;
+        if (goodString(string)) {
+            int n = string.length();
+            int Count = 0;
 
-        if (string.charAt(0) == '0' && string.charAt(1) == '0') {
-            Count++;
-            StringBuffer string0 = new StringBuffer(string);
-            string0.setCharAt(0, '1');
-            string = String.valueOf(string0);
-        }
+            if (string.charAt(0) == '0' && string.charAt(1) == '0') {
+                Count++;
+                StringBuffer string0 = new StringBuffer(string);
+                string0.setCharAt(0, '1');
+                string = String.valueOf(string0);
+            }
 
 
-        {
-            for (int i = 1; i < n - 1; i++) {
-                if (string.charAt(i - 1) == '0' && string.charAt(i + 1) == '0' && string.charAt(i) == '0') {
+            {
+                for (int i = 1; i < n - 1; i++) {
+                    if (string.charAt(i - 1) == '0' && string.charAt(i + 1) == '0' && string.charAt(i) == '0') {
+                        Count++;
+                        StringBuffer string0 = new StringBuffer(string);
+                        string0.setCharAt(i, '1');
+                        string = String.valueOf(string0);
+                    }
+                }
+                if (string.charAt(n - 1) == '0' && string.charAt(n - 2) == '0') {
                     Count++;
                     StringBuffer string0 = new StringBuffer(string);
-                    string0.setCharAt(i, '1');
+                    string0.setCharAt(n - 1, '1');
                     string = String.valueOf(string0);
                 }
             }
-            if (string.charAt(n - 1) == '0' && string.charAt(n - 2) == '0') {
-                Count++;
-                StringBuffer string0 = new StringBuffer(string);
-                string0.setCharAt(n - 1, '1');
-                string = String.valueOf(string0);
-            }
+            return Count;
         }
-        return Count;
+        else {
+            return -1;
+        }
 
     }
 
@@ -61,8 +67,10 @@ public class Urinals {
     public static void main(String[] args) throws IOException {
         String path = System.getProperty("user.dir");
 
-        DataOutputStream output = new DataOutputStream(new FileOutputStream(
-                path.concat("/src/DataBase/rule.text")));
+        Files.write(Paths.get(path.concat("/src/DataBase/rule.txt")), "Rules".getBytes(), StandardOpenOption.APPEND);
+        FileWriter fw = new FileWriter("rule.txt", true);
+        BufferedWriter bw = new BufferedWriter(fw);
+        PrintWriter out = new PrintWriter(bw);
         File file = new File(path.concat("/src/DataBase/urinal.dat"));
         Scanner scnr = new Scanner(file);
         Scanner strInt = new Scanner(System.in);
@@ -77,7 +85,7 @@ public class Urinals {
                 System.out.println("Enter string to get the number of person can pee at a time in public toilet");
                 String str = strStr.nextLine();
                 if (goodString(str)) {
-                          System.out.println(countUrinals(str));
+                    System.out.println(countUrinals(str));
                 } else {
                     System.out.println("Bad String re enter again");
                 }
@@ -86,7 +94,7 @@ public class Urinals {
                 while (scnr.hasNextLine()) {
                     String line = scnr.nextLine();
                     if (goodString(line)) {
-                               System.out.println(countUrinals(line));
+                        out.write(line);
                     } else {
                         System.out.println("Bad String re enter again");
                     }

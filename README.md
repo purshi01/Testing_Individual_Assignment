@@ -10,3 +10,7 @@ same time on public toilets with 5 urinals when following this rule (Only 2 if t
 Please clone the repository and execute in the inteliJ
 
 once you execute the Urinals.Java the output will be shown
+
+Text file is added in the project /src/Database/urinary.dat
+
+In order to see new file created you muct  execute from the console

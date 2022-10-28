@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cac64b62-18a8-4ca5-81a1-02d28a6a46ac" name="Changes" comment="countUrinals functions implemented">
-      <change afterPath="$PROJECT_DIR$/myfile.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rule.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataBase/rule.txt" afterDir="false" />
+    <list default="true" id="cac64b62-18a8-4ca5-81a1-02d28a6a46ac" name="Changes" comment="countUrinals test cases has been added">
+      <change afterPath="$PROJECT_DIR$/src/DataBase/rule.txt0.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DataBase/rule.txt0.txt0.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DataBase/rule.txt0.txt0.txt0.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataBase/rule.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataBase/rule.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Urinals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Urinals.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/UrinalsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/UrinalsTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +106,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666934682945</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="countUrinals test cases has been added">
+      <created>1666936169644</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1666936169644</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -125,6 +132,18 @@
     <MESSAGE value="pom files added" />
     <MESSAGE value="goodString function implemented" />
     <MESSAGE value="countUrinals functions implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="countUrinals functions implemented" />
+    <MESSAGE value="countUrinals test cases has been added" />
+    <option name="LAST_COMMIT_MESSAGE" value="countUrinals test cases has been added" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/Urinals.java</url>
+          <line>107</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -4,6 +4,7 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.util.HashSet;
 import java.util.Scanner;
 
 public class Urinals {
@@ -67,15 +68,14 @@ public class Urinals {
     public static void main(String[] args) throws IOException {
         String path = System.getProperty("user.dir");
 
-        Files.write(Paths.get(path.concat("/src/DataBase/rule.txt")), "Rules".getBytes(), StandardOpenOption.APPEND);
-        FileWriter fw = new FileWriter("rule.txt", true);
-        BufferedWriter bw = new BufferedWriter(fw);
-        PrintWriter out = new PrintWriter(bw);
+        File fw = new File(path.concat("/src/DataBase/rule.txt"));
+
         File file = new File(path.concat("/src/DataBase/urinal.dat"));
+        FileWriter fileWriter;
         Scanner scnr = new Scanner(file);
         Scanner strInt = new Scanner(System.in);
         Scanner strStr = new Scanner(System.in);
-
+        int i=1;
 
         while (true) {
 
@@ -91,14 +91,34 @@ public class Urinals {
                 }
 
             } else if (input == 1) {
-                while (scnr.hasNextLine()) {
-                    String line = scnr.nextLine();
-                    if (goodString(line)) {
-                        out.write(line);
-                    } else {
-                        System.out.println("Bad String re enter again");
+
+                HashSet<String> h = new HashSet<>();String filename;
+                if(fw.createNewFile()){
+                }
+                else{
+                    filename = fw.getName();
+                    String f = filename.replace(".txt","");
+
+                    while (fw.exists()){
+                        f += i;
+                        fw = new File(path.concat("/src/DataBase/"+f+".txt"));
                     }
                 }
+                fileWriter = new FileWriter(fw);
+                while (scnr.hasNextLine()) {
+
+                    String line = scnr.nextLine();
+
+                        if (goodString(line)) {
+                            fileWriter.write(countUrinals(line)+"\n");
+                        } else {
+                            System.out.println("Bad String re enter again");
+                        }
+
+
+                }
+                fileWriter.flush();
+                fileWriter.close();
             } else if (input == 2) {
                 break;
             }
